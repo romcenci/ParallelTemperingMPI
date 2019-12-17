@@ -36,3 +36,15 @@ Quickly measuring the time of a small simulation, we can simply benchmark the al
 <img src="presentation/Imagens/speedup.png" width="400">
 <img src="presentation/Imagens/efficiency2.png" width="400">
 </p>
+
+
+## Future Ideas
+
+Try to make a decentralized version of this algorithm, just with the workers exchanging the temperatures, without the need of the master.
+
+Based on: http://cacs.usc.edu/education/cs653/Li-ParallelTempering-ParComp09.pdf
+
+
+## Acknowledgment
+
+I'd would like to thank all the participants and teachers at the 2º Latin American School on Parallel Programming for HPC for their great partnership and for giving me a very pleasant and enjoyable learning environment.
