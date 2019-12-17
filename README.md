@@ -11,7 +11,7 @@ To use this code, substitute in every place that have a `...` the things that ar
 
 ## partempMPI_taskFarm.c
 	
-This code is the simplest implementation of Parallel Tempering technique, it run one temperature per core, carrying out a load balance, because some process has to wait by the others in a MPI_BARRIER.
+This code is the simplest implementation of Parallel Tempering technique, it run one temperature per core, carrying out a load imbalance, because some process has to wait by the others in a MPI_BARRIER.
 
 <p align="center">
   <img align=middle src="presentation/Imagens/taskFarm.png" width="500">
@@ -20,7 +20,7 @@ This code is the simplest implementation of Parallel Tempering technique, it run
 
 ## partempMPI_loadBalance.c
 
-This code is a implementation of Parallel Tempering technique that avoids the load balance existent when a unique temperature is simulated per core. In addition, this implementation permites run Parallel Tempering of more temperatures than the number of disponibilized cores with a simple master-worker communication protocol.
+This code is a implementation of Parallel Tempering technique that avoids the load imbalance existent when a unique temperature is simulated per core. In addition, this implementation permites run Parallel Tempering of more temperatures than the number of disponibilized cores with a simple master-worker communication protocol.
 
 <p align="center">
 <img align=middle src="presentation/Imagens/loadBalance.png" width="500">
