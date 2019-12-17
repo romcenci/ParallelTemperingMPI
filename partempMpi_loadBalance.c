@@ -6,13 +6,6 @@
 /*   protocol.									        */
 /*   										        */
 /* All places that have a ... must be changed depending on the purpose and model.       */
-/* 										        */
-/* This code was originally made by Rômulo Cenci with the help of the teachers:	        */
-/*  Gavin Pringle, Axel Kohlmeyer and Ivan Girotto, at the 2º Latin American School     */
-/*  on Parallel Programming for High Performance Computing, as final project.	        */
-/* 										        */
-/* The original sequential code was provided by Leonardo Rigon, and the main	        */
-/*  ideias of the algorithm was from Lucas Nicolao.				        */
 /****************************************************************************************/
 
 #include <stdio.h>
