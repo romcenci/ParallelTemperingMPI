@@ -3,7 +3,7 @@
 Parallel Tempering is a simulation technique aimed to equilibrate a ensemble of configurations at different temperatures. The main ideia of the algorithm is exchange the temperature between two configurations in an attempt to minimize the free energy of the two. So we can use the Boltzmann weight to calculate the probability of the exchange:
 
 <p align="center">
-  <img align=middle src="presentation/Imagens/prob.png" width="500">
+  <img align=middle src="presentation/Imagens/prob.png" width="450">
 </p>
 
 To use this code, substitute in every place that have a `...` the things that are necessary depending on your purpose and model.
@@ -32,7 +32,7 @@ This code is a implementation of Parallel Tempering technique that avoids the lo
 Quickly measuring the time of a small simulation, we can simply benchmark the algorithm. Below we can see measures of the running time of the simulation for different number of cores.
 
 <p align="center">
-<img src="presentation/Imagens/exectime.png" width="500">
-<img src="presentation/Imagens/speedup.png" width="500">
-<img src="presentation/Imagens/efficiency2.png" width="500">
+<img src="presentation/Imagens/exectime.png" width="400">
+<img src="presentation/Imagens/speedup.png" width="400">
+<img src="presentation/Imagens/efficiency2.png" width="400">
 </p>
