@@ -1,0 +1,74 @@
+\begin{tiny}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+\begin{verbatim}
+// master process
+if(!rank){
+  // initiates sending one process to each rank
+  for(jobnum=0; jobnum<Nranks-1; jobnum++){
+    configs[jobnum].jobnumE = jobnum;
+    MPI_Send(&configs[jobnum], 1, MPI_Config,\
+             jobnum+1, flag, comm);
+  }
+
+  // still has jobs to do
+  for(jobnum=Nranks-1; jobnum<Ntemps; jobnum++){
+    // wait for any rank finish to send another job
+    MPI_Recv(&jobnumE, 1, MPI_INT,\
+             MPI_ANY_SOURCE, 0, comm, &stat);
+    MPI_Recv(&configs[jobnumE], 1, MPI_Config,\
+             stat.MPI_SOURCE, 1, comm,\
+             MPI_STATUS_IGNORE);
+
+    configs[jobnum].jobnumE = jobnum;
+    MPI_Send(&configs[jobnum], 1, MPI_Config,\
+             stat.MPI_SOURCE, 0, comm);
+  }
+
+  // for the last ones just recv energies and\
+     send a -1 to says that its over
+  for(dest=1; dest<Nranks; dest++){
+    MPI_Recv(&jobnumE, 1, MPI_INT,\
+             MPI_ANY_SOURCE, 0, comm, &stat);
+    MPI_Recv(&configs[jobnumE], 1, MPI_Config,\
+             stat.MPI_SOURCE, 1, comm,\
+             MPI_STATUS_IGNORE);
+	
+    configs[jobnum].jobnumE = -1;
+    MPI_Send(&configs[jobnum], 1, MPI_Config,\
+             stat.MPI_SOURCE, 0, comm);
+  }
+}
+\end{verbatim}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+\begin{verbatim}
+// worker process
+else{
+  while(1){
+    MPI_Recv(&configs[0], 1, MPI_Config,\
+             0, 0, comm, MPI_STATUS_IGNORE);
+    if(configs[0].jobnumE>=0) {
+      // update Nranks ensembles at the same time,\
+         one per rank
+      for(k=0; k<Kmax; k++){
+        update(configs[0].x, configs[0].y,\
+               allT[configs[0].jobnumE]);
+      }
+	
+      // measure the energy and send back to the root
+      configs[0].E=ener(configs[0].x, configs[0].y);
+      MPI_Send(&configs[0].jobnumE, 1, MPI_INT,\
+               0, 0, comm);
+      MPI_Send(&configs[0], 1, MPI_Config,\
+               0, 1, comm);
+    }
+    else{
+      break;
+    }
+  }
+}
+\end{verbatim}
+      \end{column}
+    \end{columns}
+  \end{tiny}
