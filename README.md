@@ -6,7 +6,11 @@ Parallel Tempering is a simulation technique aimed to equilibrate a ensemble of 
   <img align=middle src="presentation/Imagens/prob.png" width="450">
 </p>
 
+## To use:
+
 To use this code, substitute in every place that have a `...` the things that are necessary depending on your purpose and model.
+
+So, it's just compile the .c using the `mpicc` wrapper to get the executable and run in a cluster with slurm using the syntax that is on the script `sbatch job.sh`. You can run in a unique computer too, simulating multiples cores using `mpirun --oversubscribe -n #cores a.out`.
 
 
 ## partempMPI_taskFarm.c
@@ -18,7 +22,7 @@ This code is the simplest implementation of Parallel Tempering technique, it run
 </p>
 
 
-## partempMPI_loadBalance.c
+## partempMPI_loadBalance_tag.c
 
 This code is a implementation of Parallel Tempering technique that avoids the load imbalance existent when a unique temperature is simulated per core. In addition, this implementation permites run Parallel Tempering of more temperatures than the number of disponibilized cores with a simple master-worker communication protocol.
 
