@@ -1,3 +1,14 @@
+/****************************************************************************************/
+/* The code bellow is a implementation of Parallel Tempering technique that avoids      */
+/*   the load balance existent when a unique temperature is simulated per core. In      */
+/*   addition, this implementation permites run Parallel Tempering of more temperatures */
+/*   than the number of disponibilized cores with a simple master-worker communication  */
+/*   protocol.									        */
+/*   										        */
+/* All places that have a ... must be changed depending on the purpose and model.       */
+/****************************************************************************************/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
