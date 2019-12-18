@@ -32,15 +32,9 @@ This code is a implementation of Parallel Tempering technique that avoids the lo
 Quickly measuring the time of a small simulation, we can simply benchmark the algorithm. Below we can see measures of the running time of the simulation for different number of cores.
 
 <p align="center">
-<<<<<<< HEAD
-<img align=middle src="presentation/Imagens/exectime.png" width="300">
-<img align=middle src="presentation/Imagens/speedup.png" width="300">
-<img align=middle src="presentation/Imagens/efficiency2.png" width="300">
-=======
 <img src="presentation/Imagens/exectime.png" width="400">
 <img src="presentation/Imagens/speedup.png" width="400">
 <img src="presentation/Imagens/efficiency2.png" width="400">
->>>>>>> 85a74466f808d85d8f92f6d5b6abb0ade553a7f7
 </p>
 
 
