@@ -10,7 +10,7 @@ Parallel Tempering is a simulation technique aimed to equilibrate a ensemble of 
 
 To use this code, substitute in every place that have a `...` the things that are necessary depending on your purpose and model.
 
-So, it's just compile the .c using the `mpicc` wrapper to get the executable and run in a cluster with slurm using the syntax that is on the script `sbatch job.sh`. You can run in a unique computer too, simulating multiples cores using `mpirun --oversubscribe -n #cores a.out`.
+So, it's just compile the .c using the `mpicc` wrapper to get the executable and run in a cluster with slurm using the syntax that is on the script `sbatch job.sh`. You can run in a single computer too, simulating multiples cores using `mpirun --oversubscribe -n #cores a.out`.
 
 
 ## partempMPI_taskFarm.c
